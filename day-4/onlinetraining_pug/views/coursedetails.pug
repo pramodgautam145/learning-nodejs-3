@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  div(class="row")
+    div(class="col-md-9")
+      //img(src=course.imageUrl, width="100%", alt=course.title)
+      video(src="/video/"+course.id, control, height="100%", width="100%")
+    div
+      - for (let i = 0; i < course.rating; i++)
+        span(style="color: orange;")
+          i(class="fas fa-star")
+      h5 $ #{course.price}
+      p= course.description

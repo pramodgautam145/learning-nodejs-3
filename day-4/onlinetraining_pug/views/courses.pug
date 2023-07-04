@@ -1,0 +1,23 @@
+extends layout
+
+block content  
+    h1= title
+    div(class="row")
+      each course in listofcourses     
+        div(class="col-sm-6 col-md-3") 
+          div(class="card m-2")
+            img(src=course.imageUrl alt=course.title height="150px" class="card-img-top")
+            div(class="card-body")
+              - for(let i = 0; i < course.rating; i++) 
+                  span(style="color: orange;")
+                    i(class="fas fa-star")
+              div(class="card-title")
+                a(href="/coursedetails/" + course.id)
+                  h5=course.title
+              div(class="card-title")              
+                  h6 ₹. #{course.price}
+              button(class="btn btn-danger btn-sm")
+                i(class="fas fa-trash")
+
+        
+
